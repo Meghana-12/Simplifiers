@@ -1,1 +1,1 @@
-# Smplifiers
+# Simplifiers
