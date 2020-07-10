@@ -18,15 +18,18 @@ close \/\>
 "Heading" | "Para" | "Cards" {sscanf(yytext, "%s", yylval.comp); return COMPNAME;}
 "title" | "content" | "titleSize" | "contentSize" | "titleColor" | "contentColor" {sscanf(yytext, "%s", yylval.name); return (PROPNAME);}
 "=" {return (EQ);}
-\".*\" {sscanf(yytext, "%s", yylval.val); return (PROPVAL);}
-. {error(); return (OTHER);}
+\".*\" {sscanf(yytext, "%s", yylval.value); return (PROPVAL);}
+[\t\r\n\f]* ;
+. ;
 
 %%
 
 void error() {
-    printf("Error");
+    printf("Error\n");
 }
-
+int yywrap(void) {
+    return 1;
+}
 // int main (int argc, char *argv[]) {
 //     yyin = fopen("input.txt", "r");
 //     yyout = fopen("output", "w");

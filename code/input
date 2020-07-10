@@ -1,26 +1,8 @@
 <Title
-          title="Simplifiers"
-          subtitle="ILP Project"
-          titleSize=""
-          titleColor="#ff6600"
-          contentSize=""
-          contentColor= "#ff6600"
-/>
-
-<Title
-          title="Simplifiers"
-          subtitle="ILP Project"
-          titleSize""
-          titleColor="#ff6600"
-          contentSize=""
-          contentColor= "#ff6600"
-
-
-<Title
-          title="Heading"
-          subtitle="Subheading"
-          titleSize="h2"
-          titleColor="#ff6633"
-          contentSize=""
-          contentColor= "#ff3366"
+title="Simplifiers"
+content="ILP Project"
+titleSize=""
+titleColor="#ff6600"
+contentSize=""
+contentColor="#ff6600"
 />
