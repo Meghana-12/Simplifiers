@@ -1,8 +1,8 @@
-<Title
-title="Simplifiers"
-content="ILP Project"
-titleSize=""
-titleColor="#ff6600"
-contentSize=""
-contentColor="#ff6600"
+<Heading
+	title="Simplifiers"
+	content="ILP Project"
+	titleSize=""
+	titleColor="#ff6600"
+	contentSize=""
+	contentColor="#ff6600"
 />
