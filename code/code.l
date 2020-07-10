@@ -15,8 +15,8 @@ close \/\>
 
 {open} {return (OPENTAG);}
 {close} {return (CLOSINGTAG);}
-"Heading" | "Para" | "Cards" {sscanf(yytext, "%s", yylval.val); return COMPNAME;}
-"title" | "content" | "titleSize" | "contentSize" | "titleColor" | "contentColor" {sscanf(yytext, "%s", yylval.val); return (PROPNAME);}
+"Heading" | "Para" | "Cards" {sscanf(yytext, "%s", yylval.comp); return COMPNAME;}
+"title" | "content" | "titleSize" | "contentSize" | "titleColor" | "contentColor" {sscanf(yytext, "%s", yylval.name); return (PROPNAME);}
 "=" {return (EQ);}
 \".*\" {sscanf(yytext, "%s", yylval.val); return (PROPVAL);}
 . {error(); return (OTHER);}

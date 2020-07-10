@@ -10,9 +10,11 @@ int yyerror(char *s);
 
 %type <value> PROPVAL 
 %type <name> PROPNAME
+%type <comp> COMPNAME
 %union {
-    char *val;
-    char *name;
+	char *val;
+	char *name;
+	char *comp;
 }
 
 %%
