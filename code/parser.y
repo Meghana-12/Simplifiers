@@ -25,7 +25,7 @@ s:
     | stmt s 
 ;
 stmt:
-    OPENTAG COMPNAME props CLOSETAG
+    OPENTAG COMPNAME props CLOSINGTAG
 ;
 
 props:
