@@ -1,7 +1,7 @@
 %{
 #include<stdio.h>
 #include<string.h>
-#include "y.tab.h"
+#include "parser.tab.h"
 void error();
 FILE *yyin, *yyout;
 %}
@@ -9,17 +9,19 @@ FILE *yyin, *yyout;
 /* tagblock    \<[ \t\r\n\f]*[a-zA-Z]+[ \t\r\n\f]+([a-z][a-zA-Z]+[ \t\r\n\f]*=[ \t\r\n\f]*\".*\"[ \t\r\n\f]+)+\/[ \t\r\n\f]*\> */
 /* tag \<[a-zA-Z]+ */
 open \<
+compname (Heading|Para|Cards)
+propname (title|content|titleSize|contentSize|titleColor|contentColor)
 close \/\> 
 
 %%
 
 {open} {return (OPENTAG);}
 {close} {return (CLOSINGTAG);}
-"Heading" | "Para" | "Cards" {sscanf(yytext, "%s", yylval.comp); return COMPNAME;}
-"title" | "content" | "titleSize" | "contentSize" | "titleColor" | "contentColor" {sscanf(yytext, "%s", yylval.name); return (PROPNAME);}
+{compname} {sscanf(yytext, "%s", yylval.comp); return COMPNAME;}
+{propname} {sscanf(yytext, "%s", yylval.name); return (PROPNAME);}
 "=" {return (EQ);}
 \".*\" {sscanf(yytext, "%s", yylval.value); return (PROPVAL);}
-[\t\r\n\f]* ;
+[ \t\r\n\f]* ;
 . ;
 
 %%
