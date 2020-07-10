@@ -8,7 +8,8 @@ import Para from './Para';
 export function Cards(x) {
 
   return ( 
-    <Grid
+
+   <Grid
     spacing={3}
     container
     direction="row"
@@ -43,5 +44,6 @@ export function Cards(x) {
       content_color={x.content_color3}
       />
     </Grid>    
+
   );
 }
