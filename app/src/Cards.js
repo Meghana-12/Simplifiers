@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Grid, Box, Container } from "@material-ui/core";
 import Card from './Card';
 import BackToTop from './nav';
-import {Title} from './title';
 import Para from './Para';
 export function Cards(x) {
 
