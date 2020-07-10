@@ -1,5 +1,7 @@
 %{
 #include<stdio.h>
+#include<string.h>
+#include "y.tab.h"
 void error();
 FILE *yyin, *yyout;
 %}
@@ -13,11 +15,11 @@ close \/\>
 
 {open} {return (OPENTAG);}
 {close} {return (CLOSINGTAG);}
-[A-Z][a-zA-Z1-3]* {return (NAME);}
-[a-z][A-Z]* {return (PROPNAME);}
+"Heading" | "Para" | "Cards" {sscanf(yytext, "%s", yylval.val); return COMPNAME;}
+"title" | "content" | "titleSize" | "contentSize" | "titleColor" | "contentColor" {sscanf(yytext, "%s", yylval.val); return (PROPNAME);}
 "=" {return (EQ);}
-\".*\" {return (PROPVAL);}
-. {return (OTHER);}
+\".*\" {sscanf(yytext, "%s", yylval.val); return (PROPVAL);}
+. {error(); return (OTHER);}
 
 %%
 
