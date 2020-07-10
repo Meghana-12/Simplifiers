@@ -1,7 +1,7 @@
 %{
 #include<stdio.h>
 void error();
-FILE *yyin;
+FILE *yyin, *yyout;
 %}
 
 tagblock	\<[a-zA-Z]+[\n\s]+([a-z][a-zA-Z]+(\s)*=(\s)*\".*\"[\n\s\t]+)+\/\>
@@ -9,7 +9,7 @@ tag	\<[a-zA-Z]+
 
 %%
 
-{tagblock}	{printf("%s\n", yytext);}
+{tagblock}	{fprintf(yyout, "%s\n", yytext);}
 
 %%
 
@@ -19,6 +19,7 @@ void error() {
 
 int main (int argc, char *argv[]) {
 	yyin = fopen(argv[1], "r");
+	yyout = fopen("output", "w");
 	yylex();
 	fclose(yyin);
 }
