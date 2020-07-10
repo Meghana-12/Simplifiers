@@ -3,14 +3,14 @@ import ReactDOM from 'react-dom';
 import { Grid, Box, Container } from "@material-ui/core";
 import {Cards} from './Cards';
 import BackToTop from './nav';
-import {Title} from './title';
+import {Heading} from './title';
 import Para from './Para';
 function App() {
 
   return (
     <div>
     <BackToTop>
-        <Title 
+        <Heading
           title="Simplifiers" 
           subtitle="ILP Project" 
           title_size="" 

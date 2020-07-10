@@ -32,7 +32,7 @@ const useStyles = makeStyles({
   },
 });
 
-export function Title(x) {
+export function Heading(x) {
   const classes = useStyles();
   var title_size = (x.title_size === "") ?  "h1" : x.title_size ;
   var content_size = (x.content_size === "") ?  "h4" : x.content_size ;
