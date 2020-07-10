@@ -16,7 +16,7 @@
           contentColor= "#ff6600"
 
 
-< Title
+<Title
           title="Heading"
           subtitle="Subheading"
           titleSize="h2"
