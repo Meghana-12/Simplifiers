@@ -15,12 +15,12 @@ close \/\>
 
 %%
 
-{open} {return (OPENTAG);}
-{close} {return (CLOSINGTAG);}
-{compname} {sscanf(yytext, "%s", yylval.comp); return COMPNAME;}
-{propname} {sscanf(yytext, "%s", yylval.name); return (PROPNAME);}
+{open} {yylval.opentag = strdup(yytext); return (OPENTAG);}
+{close} {yylval.closetag = strdup(yytext);return (CLOSINGTAG);}
+{compname} {yylval.comp = strdup(yytext); return COMPNAME;}
+{propname} {yylval.name = strdup(yytext); return (PROPNAME);}
 "=" {return (EQ);}
-\".*\" {sscanf(yytext, "%s", yylval.value); return (PROPVAL);}
+\".*\" {yylval.value = strdup(yytext); return (PROPVAL);}
 [ \t\r\n\f]* ;
 . ;
 
