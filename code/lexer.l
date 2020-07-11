@@ -18,10 +18,10 @@ compname (Heading[ \t\r\n\f]+|Para[ \t\r\n\f]+|Card[ \t\r\n\f]+|Nav[ \t\r\n\f]+)
 propname (sizeT|sizeC|colorT|colorC|imgLink|title|content)
 close \/\>[ \t\r\n\f]+
 container container[ \t\r\n\f]+
-spacing spacing[ \t\r\n\f]+=\{[1-9]\}[ \t\r\n\f]+
-direction direction[ \t\r\n\f]+=(\"row\"|\"column\"|\"row\-reverse\"|\"column\-reverse\")[ \t\r\n\f]+
-justify justify[ \t\r\n\f]+=(\"space\-evenly\"|\"space\-between\"|\"flex\-start\"|\"flex\-end\"|\"space\-around\"|\"center\")
-align alignItems[ \t\r\n\f]+=(\"space\-evenly\"|\"space\-between\"|\"flex\-start\"|\"flex\-end\"|\"space\-around\"|\"center\")
+spacing spacing[ \t\r\n\f]*=\{[1-9]\}[ \t\r\n\f]+
+direction direction[ \t\r\n\f]*=(\"row\"|\"column\"|\"row\-reverse\"|\"column\-reverse\")[ \t\r\n\f]+
+justify justify[ \t\r\n\f]*=(\"space\-evenly\"|\"space\-between\"|\"flex\-start\"|\"flex\-end\"|\"space\-around\"|\"center\")[ \t\r\n\f]+
+align alignItems[ \t\r\n\f]*=(\"space\-evenly\"|\"space\-between\"|\"flex\-start\"|\"flex\-end\"|\"space\-around\"|\"center\")[ \t\r\n\f]+
 cgrid [ \t\r\n\f]*\>
 ctgrid \<\/Grid\>[ \t\r\n\f]*
 opgrid \<Grid[ \t\r\n\f]*
