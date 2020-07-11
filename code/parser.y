@@ -1,7 +1,7 @@
 %{
 #include<stdio.h>
 int yylex();
-int yyerror(char *s);
+void yyerror(const char *str);
 int yyparse();
 int errcount=0;
 char *t;
@@ -9,6 +9,7 @@ char *k;
 char *temp;
 char *propname;
 char *res;
+extern int yylineno;
 extern FILE *yyin, *yyout;
 %}
 
@@ -28,11 +29,11 @@ extern FILE *yyin, *yyout;
 	char *value;
 	char *name;
 	char *comp;
-    char *opentag;
-    char *closetag;
-    char *gclosetag;
-    char *gclose;
-    char *gopentag;
+    	char *opentag;
+    	char *closetag;
+    	char *gclosetag;
+    	char *gclose;
+    	char *gopentag;
 }
 
 %%
@@ -44,7 +45,7 @@ s:
 ;
 stmt:
     OPENTAG COMPNAME props CLOSINGTAG 
-    | GRID gprops CGRID s CTGRID {printf("%s  %s %s", $1, $3, $5);}
+    | GRID gprops CGRID s CTGRID 
 ;
 props:
     | prop props 
@@ -56,29 +57,22 @@ gprop:
     CONTAINER | SPACING | DIRECTION | JUSTIFY | ALIGN 
 ;
 prop: 
-    PROPNAME EQ PROPVAL { printf( " %s = %s\n", $1, $3);}
+    PROPNAME EQ PROPVAL
 ;
 
 
 %%
 
-int yyerror(char * s){
-    printf("error on line %s\n", s);
-    errcount+=1;
-    return 0;
+void yyerror(const char *str)
+{
+        fprintf(stderr, "Error : %s at line number : %d\n", str, yylineno);
+        errcount++;
 }
 
-
-// int main() {
-//     yyparse();
-//     return 0;
-// }
-int main() {
+int main(int argc, char *argv[]) {
 	// open a file handle to a particular file:
-	FILE *myfile = fopen("input", "r");
-    FILE *yyout = fopen("../app/src/index.js", "w");
-    // FILE *yfile = fopen("output", "r+");
-    // yyout = fopen("output", "w");
+	FILE *myfile = fopen(argv[1], "r");
+    	FILE *yyout = fopen("../app/src/index.js", "w");
 	// make sure it is valid:
 	if (!myfile) {
 		printf("File not found\n");
@@ -91,24 +85,23 @@ int main() {
 	do {
 		yyparse();
 	} while (!feof(yyin));
-    if(errcount==0){
-        rewind(myfile);
-        printf("no err!!\n");
-        FILE* start = fopen("start", "r");
-        char ch;
-        while((ch =fgetc(start))!=EOF) 
-            fputc(ch,yyout);
-        fclose(start);
-        while( ( ch = fgetc(myfile) ) != EOF ){  
-            fputc(ch, yyout);
-        }
-        FILE* end = fopen("end", "r");
-        while((ch =fgetc(end))!=EOF) 
-            fputc(ch,yyout);
-        fclose(end);
-        // while (fgets(ch,12,))
-        printf("File copied successfully.\n Now go into the directory app and the run npm start, you'll be able to view the page.");
-        fclose(yyout);
-    }
-    fclose(myfile);
+    	if(errcount==0){
+        	rewind(myfile);
+        	//printf("no err!!\n");
+        	FILE* start = fopen("start", "r");
+        	char ch;
+        	while((ch =fgetc(start))!=EOF) 
+            		fputc(ch,yyout);
+        	fclose(start);
+        	while( ( ch = fgetc(myfile) ) != EOF ) {  
+            		fputc(ch, yyout);
+        	}
+        	FILE* end = fopen("end", "r");
+        	while((ch =fgetc(end))!=EOF) 
+            		fputc(ch,yyout);
+        	fclose(end);
+        	fclose(yyout);
+		fprintf(stdout, "Enter make viewPage\n");
+    	}
+    	fclose(myfile);
 }
