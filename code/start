@@ -1,7 +1,7 @@
 import React, { useState, useEffect }from 'react';
 import ReactDOM from 'react-dom';
 import { Grid, Box, Container } from "@material-ui/core";
-import {Cards} from './Cards';
+import Card from './Card';
 import BackToTop from './nav';
 import {Heading} from './heading';
 import Para from './Para';
