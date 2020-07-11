@@ -14,19 +14,25 @@ extern FILE *yyin, *yyout;
 
 
 
-%token OPENTAG CLOSINGTAG EQ PROPVAL PROPNAME COMPNAME CONTAINER SPACING DIRECTION JUSTIFY ALIGN CGRID CTAGGRID GRID
+%token OPENTAG CLOSINGTAG EQ PROPVAL PROPNAME COMPNAME CONTAINER SPACING DIRECTION JUSTIFY ALIGN CGRID CTGRID GRID
 
 %type <value> PROPVAL 
 %type <name> PROPNAME
 %type <comp> COMPNAME
 %type <opentag> OPENTAG
 %type <closetag> CLOSINGTAG
+%type <gclosetag> CTGRID
+%type <gclose> CGRID
+%type <gopentag> GRID
 %union {
 	char *value;
 	char *name;
 	char *comp;
     char *opentag;
     char *closetag;
+    char *gclosetag;
+    char *gclose;
+    char *gopentag;
 }
 
 %%
@@ -38,7 +44,7 @@ s:
 ;
 stmt:
     OPENTAG COMPNAME props CLOSINGTAG 
-    | OPENTAG GRID gprops CGRID stmt CTAGGRID 
+    | GRID gprops CGRID stmt CTGRID {printf("%s  %s %s", $1, $3, $5)}
 ;
 props:
     | prop props 
