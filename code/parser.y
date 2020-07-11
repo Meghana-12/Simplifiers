@@ -44,7 +44,7 @@ s:
 ;
 stmt:
     OPENTAG COMPNAME props CLOSINGTAG 
-    | GRID gprops CGRID stmt CTGRID {printf("%s  %s %s", $1, $3, $5)}
+    | GRID gprops CGRID s CTGRID {printf("%s  %s %s", $1, $3, $5);}
 ;
 props:
     | prop props 
