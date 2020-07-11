@@ -3,8 +3,9 @@
 
 
 *INSTRUCTIONS* :
-      Go to the code folder
-      Enter make (that will guide you further) on the command line
+
+    - Go to the code folder
+    - Enter make (that will guide you further) on the command line
       
  DOCUMENTATION:
 
@@ -58,5 +59,4 @@
 
 **TYPOGRAPHY**
 Allowed property values: "h1","h2","h3","h4","h5","h6", "body1", "body2"
- *(Component part only)*
 
