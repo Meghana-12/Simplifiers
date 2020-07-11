@@ -7,7 +7,7 @@
     - Go to the code folder
     - Enter make (that will guide you further) on the command line
       
- DOCUMENTATION:
+ DOCUMENTATION :
 
 **COMPONENTS**
 
