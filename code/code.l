@@ -14,7 +14,7 @@ FILE *yyin, *yyout;
 /* tagblock    \<[ \t\r\n\f]*[a-zA-Z]+[ \t\r\n\f]+([a-z][a-zA-Z]+[ \t\r\n\f]*=[ \t\r\n\f]*\".*\"[ \t\r\n\f]+)+\/[ \t\r\n\f]*\> */
 /* tag \<[a-zA-Z]+ */
 open \<[ \t\r\n\f]*
-compname (Heading[ \t\r\n\f]+|Para[ \t\r\n\f]+|Card[ \t\r\n\f]+)
+compname (Heading[ \t\r\n\f]+|Para[ \t\r\n\f]+|Card[ \t\r\n\f]+|Nav[ \t\r\n\f]+)
 propname (sizeT[ \t\r\n\f]+|sizeC[ \t\r\n\f]+|colorT([ \t\r\n\f]+)|colorC([ \t\r\n\f]+)|imgLink([ \t\r\n\f]+)|title([ \t\r\n\f]+)|content([ \t\r\n\f]+))
 close \/\>[ \t\r\n\f]+
 container container[ \t\r\n\f]+

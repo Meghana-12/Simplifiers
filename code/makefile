@@ -16,5 +16,5 @@ viewPage:
 clear: 
 	@rm -f parser.tab.h && rm -f parser.tab.c && rm -f lex.yy.c && rm -f ex
 	@echo "cleared files in code directory"
-	@cd ..  && rm -f app/src/index.js && cd .. & cd .. & echo "we are in simplifiers! Thankyou!"
+	@cd ..  && rm -f app/src/index.tsx && cd .. & cd .. & echo "we are in simplifiers! Thankyou!"
 	

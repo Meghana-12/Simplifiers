@@ -1,10 +1,8 @@
-
-
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import { Grid, Box, Container } from "@material-ui/core";
-
+import {Props} from './props';
 import { findByLabelText } from '@testing-library/react';
 
 const useStyles = makeStyles({
@@ -16,12 +14,12 @@ const useStyles = makeStyles({
   },
 });
 
-export default function Para(x) {
+export default function Para( {title, content, sizeC, colorT, colorC, sizeT} : Props) {
   const classes = useStyles();
-  var title_size = (x.sizeT === "") ?  "h2" : x.sizeT ;
-  var content_size = (x.sizeC === "") ?  "h4" : x.sizeC ;
-  var title_color = (x.colorT === "") ?  "#000000" : x.colorT ;
-  var content_color = (x.colorC === "") ?  "#000000" : x.colorC ;
+  // var sizeT = (sizeT === null) ?  "h2" : sizeT ;
+  // var sizeC = (sizeC === null) ?  "h4" : sizeC ;
+  // var colorT = (colorT === null) ?  "#000000" : colorT ;
+  // var colorC = (colorC === null) ?  "#000000" : colorC ;
 
   return (
     <div className= {classes.root}>
@@ -33,13 +31,18 @@ export default function Para(x) {
             alignItems="center"
             
             >
-            <Typography variant={title_size} component="h3"  style={{color:title_color } }>
-                {x.title}
+            <Typography variant={sizeT} component="h3"  style={{color:colorT } }>
+                {title}
             </Typography>
-            <Typography varient={content_size} component="p"  style={{color:content_color } }>
-                {x.content}
+            <Typography variant={sizeC} component="p"  style={{color:colorC } }>
+                {content}
             </Typography>
         </Grid> 
     </div>
   );
 }
+
+Para.defaultProps = {
+  sizeT: "h1",
+  sizeC: "h4",
+};

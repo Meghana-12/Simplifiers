@@ -72,7 +72,7 @@ void yyerror(const char *str)
 int main(int argc, char *argv[]) {
 	// open a file handle to a particular file:
 	FILE *myfile = fopen(argv[1], "r");
-    	FILE *yyout = fopen("../app/src/index.js", "w");
+    	FILE *yyout = fopen("../app/src/index.tsx", "w");
 	// make sure it is valid:
 	if (!myfile) {
 		printf("File not found\n");
