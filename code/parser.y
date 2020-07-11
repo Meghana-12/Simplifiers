@@ -14,7 +14,7 @@ extern FILE *yyin, *yyout;
 
 
 
-%token OPENTAG CLOSINGTAG EQ PROPVAL PROPNAME COMPNAME OTHER
+%token OPENTAG CLOSINGTAG EQ PROPVAL PROPNAME COMPNAME CONTAINER SPACING DIRECTION JUSTIFY ALIGN CGRID CTAGGRID GRID
 
 %type <value> PROPVAL 
 %type <name> PROPNAME
@@ -36,16 +36,21 @@ prog:
 s:
     | stmt s 
 ;
-
+stmt:
+    OPENTAG COMPNAME props CLOSINGTAG 
+    | OPENTAG GRID gprops CGRID stmt CTAGGRID 
+;
 props:
     | prop props 
 ;
-
+gprops:
+    |gprop gprops
+;
+gprop:
+    CONTAINER | SPACING | DIRECTION | JUSTIFY | ALIGN 
+;
 prop: 
     PROPNAME EQ PROPVAL { printf( " %s = %s\n", $1, $3);}
-;
-stmt:
-    OPENTAG COMPNAME props CLOSINGTAG 
 ;
 
 

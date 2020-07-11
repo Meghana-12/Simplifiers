@@ -14,3 +14,41 @@
         title_color=""
         content_color=""
         />
+        <Grid
+    spacing={3}
+    container
+    direction="row"
+    justify="space-evenly"
+    alignItems="center"   
+  >
+    <Card
+        imgLink=".." 
+        title="LIzard" 
+        content="Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+          across all continents except Antarctica"
+        title_size= ""
+        content_size=""
+        title_color=""
+        content_color=""
+      />
+      <Card
+        imgLink=".." 
+        title="LIzard" 
+        content="Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+          across all continents except Antarctica"
+        title_size= ""
+        content_size=""
+        title_color=""
+        content_color=""
+      />
+       <Card
+        imgLink=".." 
+        title="LIzard" 
+        content="Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
+          across all continents except Antarctica"
+        title_size= ""
+        content_size=""
+        title_color=""
+        content_color=""
+      />
+    </Grid>    
