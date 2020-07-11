@@ -11,7 +11,7 @@ FILE *yyin, *yyout;
 open \<[\t\r\n\f]*
 compname (Heading|Para|Cards|Card)
 propname (imgLink|title|content|titleSize|contentSize|titleColor|contentColor)
-close \/\> 
+close \/\>[\t\r\n\f]*
 container container 
 spacing spacing=\{[1-9]\}
 direction direction=(\"row\"|\"column\")
