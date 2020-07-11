@@ -1,10 +1,10 @@
 import React, { useState, useEffect }from 'react';
 import ReactDOM from 'react-dom';
 import { Grid, Box, Container } from "@material-ui/core";
-import {MediaCard} from './Card';
+import {MediaCard} from './card';
 import {Nav} from './nav';
 import {Heading} from './heading';
-import {Para} from './Para';
+import {Para} from './para';
 function App() {
 
   return (

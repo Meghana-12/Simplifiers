@@ -103,7 +103,7 @@ int main(int argc, char *argv[]) {
             		fputc(ch,yyout);
         	fclose(end);
         	fclose(yyout);
-		fprintf(stdout, "Enter make viewPage\n");
+		fprintf(stdout, "Great!! There's no error !! Now, enter make viewPage to view the page at http://localhost:3000/\n");
     	}
     	fclose(myfile);
 }

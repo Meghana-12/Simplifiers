@@ -9,8 +9,8 @@ FILE *yyin, *yyout;
 
 %option yylineno
 
-/* propErr (sizeT.*[ \t\r\n\f]+|sizeC.*[ \t\r\n\f]+|colorT.*([ \t\r\n\f]+)|colorC.*([ \t\r\n\f]+)|imgLink.*([ \t\r\n\f]+)|title.*([ \t\r\n\f]+)|content.*([ \t\r\n\f]+)|^sizeT[ \t\r\n\f]+|^sizeC[ \t\r\n\f]+|^colorT([ \t\r\n\f]+)|^colorC([ \t\r\n\f]+)|^imgLink([ \t\r\n\f]+)|^title([ \t\r\n\f]+)|^content([ \t\r\n\f]+))
-/* {propErr} {printf("err:  %s", yytext);}
+/* propErr (sizeT.*[ \t\r\n\f]+|sizeC.*[ \t\r\n\f]+|colorT.*([ \t\r\n\f]+)|colorC.*([ \t\r\n\f]+)|imgLink.*([ \t\r\n\f]+)|title.*([ \t\r\n\f]+)|content.*([ \t\r\n\f]+)|^sizeT[ \t\r\n\f]+|^sizeC[ \t\r\n\f]+|^colorT([ \t\r\n\f]+)|^colorC([ \t\r\n\f]+)|^imgLink([ \t\r\n\f]+)|^title([ \t\r\n\f]+)|^content([ \t\r\n\f]+)) */
+/* {propErr} {printf("err:  %s", yytext);} */
 /* tagblock    \<[ \t\r\n\f]*[a-zA-Z]+[ \t\r\n\f]+([a-z][a-zA-Z]+[ \t\r\n\f]*=[ \t\r\n\f]*\".*\"[ \t\r\n\f]+)+\/[ \t\r\n\f]*\> */
 /* tag \<[a-zA-Z]+ */
 open \<[ \t\r\n\f]*
