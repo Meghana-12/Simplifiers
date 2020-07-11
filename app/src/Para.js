@@ -18,10 +18,10 @@ const useStyles = makeStyles({
 
 export default function Para(x) {
   const classes = useStyles();
-  var title_size = (x.title_size === "") ?  "h2" : x.title_size ;
-  var content_size = (x.content_size === "") ?  "h4" : x.content_size ;
-  var title_color = (x.title_color === "") ?  "#000000" : x.title_color ;
-  var content_color = (x.content_color === "") ?  "#000000" : x.content_color ;
+  var title_size = (x.sizeT === "") ?  "h2" : x.sizeT ;
+  var content_size = (x.sizeC === "") ?  "h4" : x.sizeC ;
+  var title_color = (x.colorT === "") ?  "#000000" : x.colorT ;
+  var content_color = (x.colorC === "") ?  "#000000" : x.colorC ;
 
   return (
     <div className= {classes.root}>
