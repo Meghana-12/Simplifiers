@@ -4,11 +4,6 @@ int yylex();
 void yyerror(const char *str);
 int yyparse();
 int errcount=0;
-char *t;
-char *k;
-char *temp;
-char *propname;
-char *res;
 extern int yylineno;
 extern FILE *yyin, *yyout;
 %}
@@ -65,14 +60,16 @@ prop:
 
 void yyerror(const char *str)
 {
+		// error
         fprintf(stderr, "Error : %s at line number : %d\n", str, yylineno);
+		// errcount counts the number of errors
         errcount++;
 }
 
 int main(int argc, char *argv[]) {
 	// open a file handle to a particular file:
 	FILE *myfile = fopen(argv[1], "r");
-    	FILE *yyout = fopen("../app/src/index.js", "w");
+    	FILE *yyout = fopen("../app/src/index.tsx", "w");
 	// make sure it is valid:
 	if (!myfile) {
 		printf("File not found\n");
@@ -85,23 +82,28 @@ int main(int argc, char *argv[]) {
 	do {
 		yyparse();
 	} while (!feof(yyin));
+	// checks if there isn't an error 
     	if(errcount==0){
+			// if theres no error then index.tsx file is created and necessary content is loaded
         	rewind(myfile);
         	//printf("no err!!\n");
         	FILE* start = fopen("start", "r");
         	char ch;
+			// to write the start code from start to index.tsx 
         	while((ch =fgetc(start))!=EOF) 
             		fputc(ch,yyout);
         	fclose(start);
+			// to write the input into index.js
         	while( ( ch = fgetc(myfile) ) != EOF ) {  
             		fputc(ch, yyout);
         	}
         	FILE* end = fopen("end", "r");
+			// to write the end code from start to index.tsx 
         	while((ch =fgetc(end))!=EOF) 
             		fputc(ch,yyout);
         	fclose(end);
         	fclose(yyout);
-		fprintf(stdout, "Enter make viewPage\n");
+		fprintf(stdout, "Great!! There's no error !! Now, enter make viewPage to view the page at http://localhost:3000/\n");
     	}
     	fclose(myfile);
 }

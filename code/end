@@ -1,6 +1,5 @@
- </BackToTop>
-        
-     </div>
+
+     </React.Fragment>
   );
 }
 

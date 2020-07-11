@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { Grid, Box, Container } from "@material-ui/core";
 import { findByLabelText } from '@testing-library/react';
+import {Props} from './props';
 
 const useStyles = makeStyles({
   root: {
@@ -32,26 +33,27 @@ const useStyles = makeStyles({
   },
 });
 
-export function Heading(x) {
+export function Heading( {title, content, sizeC, colorT, colorC, sizeT} : Props ) {
   const classes = useStyles();
-  var title_size = (x.sizeT === "") ?  "h1" : x.sizeT ;
-  var content_size = (x.sizeC === "") ?  "h4" : x.sizeC ;
-  var title_color = (x.colorT === "") ?  "#000000" : x.colorT ;
-  var content_color = (x.colorC === "") ?  "#000000" : x.colorC ;
   return (
     <div className={classes.root} >
-     
- 
-         <Typography variant={title_size} component="h2" style={{color:title_color } } >
-        {x.title}
+         <Typography variant={sizeT} component="h2" style={{color:colorT } } >
+        {title}
         </Typography>
 
         <br/>
-        <Typography variant={content_size} component="h2"style={{color:content_color } }>
-         {x.content}
+        <Typography variant={sizeC} component="h2"style={{color:colorC } }>
+         {content}
         </Typography>
 
       </div>
   
   );
 }
+// default values
+Heading.defaultProps = {
+  sizeT: "h1",
+  sizeC: "h4",
+  colorT: "#e68a00",
+  colorC: "#e68a00",
+};
